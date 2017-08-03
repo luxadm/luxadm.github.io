@@ -1,0 +1,64 @@
+//  "script" "limit" "unit" (deposits or cashouts) like so:
+// phantomjs this_script 3 cashouts >/dev/stdout
+ 
+function to_evaluate(args){
+// register AJAX prefilter : options, original options
+$.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+   // overwrite error handler for current request
+   options.error = function( _jqXHR, _textStatus, _errorThrown ){
+      // Call AJAX again with original options
+      $.ajax(originalOptions);};});
+ 
+var start =new Date(), end, units = [ [],[] ];// unit / page.
+ 
+var page=2,limit=args[1];
+function run(unit,page_num){
+$.ajax({ type: 'GET',
+            url: 'https://banana.fund'+unit+'/?page='+page_num,
+            dataType: 'html',
+            success: function (data) {
+if(/(cashouts)/gi.test(unit)){var num=1;}else{var num=0;}
+document.querySelectorAll('div.ajax-widget.panel-body')[num].innerHTML+=data;
+document.querySelectorAll('div.text-center > ul.pagination')[num].parentNode.remove();
+units[num][page]=document.querySelectorAll('div.ajax-widget.panel-body')[num].querySelectorAll('table.table')[1].childNodes[3].innerHTML;
+post_processing(num);
+            }
+        });
+}run('/statistics/'+args[2],page); //deposits or cashouts
+ 
+function post_processing(unit_num){
+var x=document.querySelectorAll('div.ajax-widget.panel-body')[unit_num].querySelectorAll('table.table');x[1].remove();
+console.log('Page: '+page);if(page<limit){page++;run('/statistics/'+args[2],page);} else{for(var i=0;i<units[unit_num].length;i++){if(units[unit_num][i]){x[0].innerHTML+=units[unit_num][i];units[unit_num][i]=''}}  var trs=[],j,k=x[0].querySelectorAll('tr');for(j=1;j<k.length;j++){k[j].children[0].innerHTML=j+" - "+k[j].children[0].innerHTML}end=new Date();console.log('The operation lasted: '+(end.getTime()-start.getTime())+' ms\n'+end+'\n');}
+}
+}
+ 
+//document.cookie ="laravel_session=MGEyOTBlYT...ETIifQ%3D%3D; path=/; domain=banana.fund; secure=true; expires=Tue, 19 Jan 2038 03:14:07 GMT;"
+ 
+var key;
+key='MGEyOTBlYT...ETIifQ%3D%3D';
+ 
+phantom.cookies = [{
+  'name'     : 'laravel_session',  
+  'value'    : key,  
+  'domain'   : 'banana.fund',        
+  'path'     : '/',
+  'httponly' : false,
+  'secure'   : true,
+  'expires'  : (new Date()).getTime() + (1000 * 60 * 60 * 43800) //5 years
+}];
+ 
+var url = 'https://banana.fund/statistics';
+var fs = require('fs');
+var args = require('system').args;
+ 
+var page=require('webpage').create({viewportSize:{width: 1600,height: 900},
+settings:{userAgent:'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
+javascriptEnabled:true,
+loadImages:true
+}});
+ 
+page.onConsoleMessage = function(msg, lineNum, sourceId){console.log('CONSOLE: '+msg);
+if(/(The operation lasted)(.*)?/gi.test(msg)){finish()}};
+      // start
+      page.open(url, function (){page.evaluate(to_evaluate,args);});
+      function finish(){page.render('page.png');fs.write( '/home/root2/pjs/'+args[2]+'.html',  page.content, 'w'); setTimeout(phantom.exit,2000);}

@@ -1,0 +1,97 @@
+body {
+    background-color: #edf0f5;
+}
+
+.container {
+    width: 970px !important;
+}
+
+div.center-container {
+    background-color: #fff;
+    padding: 20px 0;
+}
+
+div.buttons a {
+    width: 100%;
+}
+
+div.description p {
+    line-height: 20px;
+    margin: 0;
+}
+
+.m-b-60 {
+    margin-bottom: 60px !important;
+}
+
+div.highlight {
+    background-color: #edf0f5;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.modal-header {
+    background: #6059EE;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+.modal-body {
+    padding: 15px 15px 20px;
+}
+
+.expand-form {
+    display: none;
+}
+
+.modal-footer {
+    text-align: left;
+}
+
+.modal-footer .row {
+    padding: 15px 0;
+}
+
+.modal-footer .row:last-child {
+    padding-bottom: 0;
+}
+
+#sponsor-data {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.control-inline {
+    margin-left: 10px;
+}
+
+a {
+    color: #6059EE;
+}
+
+/* temp member side */
+.header a.btn {
+    width: 100%;
+}
+
+.tabs-vertical .nav-tabs {
+    width: 200px;
+}
+
+.tabs-container.tabs-vertical .panel-body {
+    min-height: 300px;
+}
+
+#referrals img.avatar,
+.navbar-brand img.avatar {
+    max-height: 24px;
+    max-width: 24px;
+}
+
+#avatar img.avatar {
+    display: block;
+}
+
+.btn-clipboard {
+    border-width: 2px;
+}

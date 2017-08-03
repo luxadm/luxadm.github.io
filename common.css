@@ -1,0 +1,45 @@
+.form-group small.error {
+    color: #ff0018;
+    display: none;
+}
+
+.form-group.has-error small.error {
+    display: block;
+}
+
+.modal small.details {
+    display: block;
+}
+
+.alert a {
+    color: white;
+    text-decoration: underline;
+}
+
+.alert a:hover {
+    color: #DDD;
+    text-decoration: none;
+}
+
+.panel .form {
+    position: relative;
+}
+
+.panel .noty_inline_layout_container {
+    position: absolute;
+    max-width: 100%;
+}
+
+img.avatar {
+    height: 24px;
+    width: 24px;
+}
+
+.flat-avatars img.avatar {
+    height: 60px;
+    width: 60px;
+}
+
+.use_max {
+    cursor: pointer;
+}

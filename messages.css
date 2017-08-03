@@ -1,0 +1,193 @@
+.actions {
+    display: none;
+}
+
+.modal-topic:hover .actions,
+table td:hover .actions {
+    display: inline-block;
+}
+
+.modal-topic {
+    background-color: #fafafa;
+    border-bottom: 5px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.modal-author h4.media-title {
+    padding-top: 10px;
+}
+
+.modal-author h4.media-title small {
+    color: #fff;
+}
+
+.modal-author img.avatar {
+    height: 40px;
+    width: 40px;
+}
+
+.modal-create {
+    padding-bottom: 0;
+}
+
+td.empty-chat {
+    padding: 10px !important;
+}
+
+.modal-replies {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.replies table {
+    width: 100%;
+}
+
+.replies table td {
+    padding: 7px 10px 7px 0;
+}
+
+.replies .author {
+    color: #666;
+    font-weight: bold;
+    padding: 7px 50px 7px 10px;
+    width: 150px;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.replies .author.rank-mod {
+    color: #0a568c;
+}
+
+.replies .author.rank-deposit {
+    color: #008c29;
+}
+
+.replies .author.rank-admin {
+    color: #ee0600;
+}
+
+.modal-reply {
+    background-color: #fafafa;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 0 10px;
+}
+
+.modal-reply img.avatar {
+    width: 30px;
+    height: 30px;
+}
+
+.dont-break-out {
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.max-height {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.popout .max-height {
+    max-height: 300px;
+}
+
+.popout .modal-replies .media {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.popout .modal-replies .media:last-child {
+    border-bottom: none;
+}
+
+.popout .modal-replies .media-left img.avatar {
+    height: 32px;
+    width: 32px;
+}
+
+.popout .modal-replies .max-height {
+    max-height: 100px;
+}
+
+.popout .modal-replies .media-title span {
+    color: #999;
+    float: right;
+    font-size: 0.8em;
+}
+
+.load-more {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.tooltip {
+    min-width: 130px;
+}
+
+.new-threads {
+    display: none;
+}
+
+.start-thread {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+.original {
+    border: 1px solid #ddd;
+    padding: 5px;
+    background: #ffecec;
+}
+
+#topics {
+    margin-top: 30px;
+}
+
+#topics .thread-row td {
+    position: relative;
+}
+
+#topics .thread-row td a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#topics .table td {
+    border-top: none;
+}
+
+#topics .table>thead>tr>th {
+    border-bottom-width: 1px;
+}
+
+#topics td.num-replies {
+    font-weight: bold;
+}
+
+.news-body img {
+    max-width: 100%;
+}
